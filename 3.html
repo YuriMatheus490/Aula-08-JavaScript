@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+
+<body>
+    <!--3.	Faça um programa que leia e valide as seguintes informações:
+a.	Nome: maior que 3 caracteres;
+b.	Idade: entre 0 e 150;
+c.	Salário: maior que zero;
+d.	Sexo: 'f' ou 'm';
+e.	Estado Civil: 's', 'c', 'v', 'd';
+Dica: se sua variável é texto, o tamanho dela está armazenado em: texto.length-->
+    <form action="">
+        <label for="nome">Nome</label> <br />
+        <input type="text" id="nome" placeholder="Digite o nome"><br />
+        <br />
+        <label for="idade">Idade</label> <br />
+        <input type="number" id="idade" placeholder="Digite a idade"><br />
+        <br />
+        <label for="salario">Salário</label> <br />
+        <input type="number" id="salario" placeholder="Digite o salário"><br />
+        <br />
+        <!--
+    <br>Sexo<br/>
+    <input type="radio" id="sexo" name="sexo" value="f"> Feminino<br/>
+    <input type="radio" id="sexo" name="sexo" value="m"> Masculino<br/>
+    <input type="radio" id="sexo" name="sexo" value="o"> Outro<br/>
+    <br/>-->
+        <br>Sexo<br />
+        <input type="text" id="sexo" placeholder="Digite f ou m"><br />
+        <br />
+        <!--
+    <br>Estado civil<br/>
+    <select name="" id="estado civil">
+        <option value="c">Casado</option>
+        <option value="s">Solteiro</option>
+        <option value="d">Divorciado</option>
+        <option value="v">Viúvo</option>
+    </select>-->
+    <label for="salario">Estado civil</label> <br />
+        <input type="text" id="ec" placeholder="Digite o c, s, d, v"><br />
+        <br />
+
+
+        <button type="button" onclick="validar()">Validar</button>
+    </form>
+    <div id="resposta"></div>
+
+    <script>
+        function validar() {
+            let nome = document.getElementById("nome").value;
+            let t = (nome.length);
+            let idade = parseInt(document.getElementById("idade").value);
+            let salario = parseFloat(document.getElementById("salario").value);
+            let sexo = document.getElementById("sexo").value;
+            let s = (sexo.toLowerCase());
+            let ec = document.getElementById("ec").value;
+            ec  = (ec.toLowerCase());  //toLowerCase (letra do maiúsculo para minúsculo). toUpperCase (letra do minúsculo para maiúsculo).
+
+            if (t < 3) {
+                document.getElementById("resposta").textContent += "Nome inválido";
+            }
+            if (idade < 0 || idade > 150) {
+                document.getElementById("resposta").textContent += "Idade inválida";
+            }
+            if (salario <= 0) {
+                document.getElementById("resposta").textContent += "Salário inválida";
+            }
+            if (sexo != "f" && sexo != "m") {
+                document.getElementById("resposta").textContent += "Sexo inválido";
+            }
+            if (ec != "c" && ec != "s" && ec != "d" && ec != "v") {
+                document.getElementById("resposta").textContent += "Estado civil inválido";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
